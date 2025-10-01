@@ -42,11 +42,11 @@ class ProfileCard extends StatefulWidget {
 
 class _ProfileCardState extends State<ProfileCard> {
   // Variabel boolean untuk melacak apakah konten tambahan sedang ditampilkan atau tidak
-  bool _isExpanded = false;
+  bool _isPressed = false;
 
   void _toggleExpand() {
     setState(() {
-      _isExpanded = !_isExpanded;
+      _isPressed = !_isPressed;
     });
   }
 
@@ -115,14 +115,14 @@ class _ProfileCardState extends State<ProfileCard> {
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
-              child: Text(_isExpanded ? 'See Less' : 'See More'),
+              child: Text(_isPressed ? 'See Less' : 'See More'),
             ),
 
 
              SizedBox(height: 12),
 
 
-            _isExpanded ? Column(
+            _isPressed ? Column(
               children: [
 
 
