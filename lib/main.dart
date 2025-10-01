@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -14,18 +13,9 @@ class MyApp extends StatelessWidget {
       title: 'Profile',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.grey),
-        useMaterial3: true,
         fontFamily: 'Poppins',
-        // Atur tema untuk card agar lebih konsistenz
-        cardTheme: CardThemeData(
-          elevation: 4,
-          margin: const EdgeInsets.symmetric(vertical: 8.0),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.0),
-          ),
-        ),
       ),
-      home: const ProfileScreen(),
+      home:  ProfileScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -37,17 +27,15 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Memberi background warna sedikit abu-abu agar card terlihat menonjol
       backgroundColor: Colors.grey[800],
-      body: const Center(
-        // Widget Center untuk meletakkan card di tengah layar
+      body:  Center(
         child: ProfileCard(),
       ),
     );
   }
 }
 
-// Menggunakan StatefulWidget karena kita perlu mengubah state (tampilan) dari card
+// Menggunakan StatefulWidget karena kita perlu mengubah state (tampilan)
 class ProfileCard extends StatefulWidget {
   const ProfileCard({super.key});
 
@@ -56,10 +44,9 @@ class ProfileCard extends StatefulWidget {
 }
 
 class _ProfileCardState extends State<ProfileCard> {
-  // Variabel boolean untuk melacak apakah card sedang dalam mode expanded atau tidak
+  // Variabel boolean untuk melacak apakah konten tambahan sedang ditampilkan atau tidak
   bool _isExpanded = false;
 
-  // Fungsi untuk mengubah state ketika tombol ditekan
   void _toggleExpand() {
     setState(() {
       _isExpanded = !_isExpanded;
@@ -68,27 +55,36 @@ class _ProfileCardState extends State<ProfileCard> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      // Memberi sedikit margin horizontal agar tidak terlalu mepet ke tepi layar kecil
-      margin: const EdgeInsets.symmetric(horizontal: 20),
-      color: Colors.black54,
-      clipBehavior: Clip.antiAlias, // Untuk memastikan konten di dalam card mengikuti rounded corner
+    return Container(
+      margin:  EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+      decoration: BoxDecoration(
+        color: Colors.black54,
+        borderRadius: BorderRadius.circular(15.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.3),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset:  Offset(0, 3),
+          ),
+        ],
+      ),
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding:  EdgeInsets.all(20.0),
         child: Column(
-          // mainAxisSize.min membuat column hanya setinggi kontennya
           mainAxisSize: MainAxisSize.min,
           children: [
-            // FOTO DIATAS
-            const CircleAvatar(
+             CircleAvatar(
               radius: 50,
-              backgroundImage: AssetImage('images/user.png'), // Ganti dengan URL gambar Anda
+              backgroundImage: AssetImage('images/user.png'),
               backgroundColor: Colors.teal,
             ),
-            const SizedBox(height: 16),
 
-            // NAMA
-            const Text(
+
+             SizedBox(height: 16),
+
+
+             Text(
               'Muhammad Nur Rizky',
               style: TextStyle(
                 fontSize: 22,
@@ -96,9 +92,11 @@ class _ProfileCardState extends State<ProfileCard> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 4),
 
-            // SEKOLAH
+
+             SizedBox(height: 4),
+
+
             Text(
               'SMK Wikrama Bogor',
               style: TextStyle(
@@ -106,9 +104,11 @@ class _ProfileCardState extends State<ProfileCard> {
                 color: Colors.grey[600],
               ),
             ),
-            const SizedBox(height: 30),
 
-            // TOMBOL SEE MORE
+
+             SizedBox(height: 30),
+
+
             ElevatedButton(
               onPressed: _toggleExpand,
               style: ElevatedButton.styleFrom(
@@ -120,66 +120,101 @@ class _ProfileCardState extends State<ProfileCard> {
               ),
               child: Text(_isExpanded ? 'See Less' : 'See More'),
             ),
-            const SizedBox(height: 12),
 
-            // KONTEN TAMBAHAN YANG BISA MUNCUL DAN HILANG
+
+             SizedBox(height: 12),
+
+
             // Widget AnimatedSize memberikan efek animasi halus saat ukuran berubah
             AnimatedSize(
-              duration: const Duration(milliseconds: 400),
+              duration:  Duration(milliseconds: 400),
               curve: Curves.easeInOut,
-              child: _isExpanded ? _buildExpandedContent() : const SizedBox.shrink(),
+              child: _isExpanded
+                  ? Column(
+                      children: [
+                         Divider(height: 50),
+                        // About Container
+                        Container(
+                          margin:  EdgeInsets.symmetric(vertical: 7.0),
+                          decoration: BoxDecoration(
+                            color: Colors.grey.shade800,
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          child:  ListTile(
+                            leading: Icon(Icons.person_outline, color: Colors.white),
+                            title: Text(
+                              '- About',
+                              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                            ),
+                            subtitle: Text(
+                              "Halo! 👋 Saya Muhammad Nur Rizky seorang pelajar dari SMK Wikrama Bogor yang hobi mendengarkan musik dan berenang. Saat ini saya sedang belajar pemrograman, khususnya Flutter, Web Development, dan Go. Saya ingin terus berkembang dan bisa membuat aplikasi bermanfaat untuk banyak orang.",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                        // Skills Container
+                        Container(
+                          margin:  EdgeInsets.symmetric(vertical: 7.0),
+                           decoration: BoxDecoration(
+                            color: Colors.grey.shade800,
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          child:  ListTile(
+                            leading: Icon(Icons.lightbulb_outline, color: Colors.white),
+                            title: Text(
+                              '- Skills',
+                              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                            ),
+                            subtitle: Text(
+                              'HTML, CSS, Javascript, Laravel, Git,',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                        // History Sekolah Container
+                        Container(
+                          margin:  EdgeInsets.symmetric(vertical: 7.0),
+                           decoration: BoxDecoration(
+                            color: Colors.grey.shade800,
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          child:  ListTile(
+                            leading: Icon(Icons.school_outlined, color: Colors.white),
+                            title: Text(
+                              '- History Sekolah',
+                              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                            ),
+                            subtitle: Text(
+                              '• SMK Wikrama Bogor (2023-2026)\n• MTSs Fathan Mubina',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                        // Contact Container
+                        Container(
+                          margin:  EdgeInsets.symmetric(vertical: 7.0),
+                           decoration: BoxDecoration(
+                            color: Colors.grey.shade800,
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          child:  ListTile(
+                            leading: Icon(Icons.contacts_outlined, color: Colors.white),
+                            title: Text(
+                              '- Contact',
+                              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                            ),
+                            subtitle: Text(
+                              '• Email: nurrizkyr90@gmail.com\n• LinkedIn: Muhammad Nur Rizky',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  :  SizedBox.shrink(),
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  // Widget untuk membangun konten detail yang akan ditampilkan
-  Widget _buildExpandedContent() {
-    return Column(
-      children: [
-        const Divider(height: 50),
-        _buildDetailCard(
-          icon: Icons.person_outline,
-          title: '- About',
-          content: "Halo! 👋 Saya Muhammad Nur Rizky seorang pelajar dari SMK Wikrama Bogor yang hobi mendengarkan musik dan berenang. Saat ini saya sedang belajar pemrograman, khususnya Flutter, Web Development, dan Go. Saya ingin terus berkembang dan bisa membuat aplikasi bermanfaat untuk banyak orang.",
-        ),
-        _buildDetailCard(
-          icon: Icons.lightbulb_outline,
-          title: '- Skills',
-          content: 'HTML, CSS, Javascript, Laravel, Git,',
-        ),
-        _buildDetailCard(
-          icon: Icons.school_outlined,
-          title: '- History Sekolah',
-          content: '• SMK Wikrama Bogor (2023-2026)\n• MTSs Fathan Mubina',
-        ),
-         _buildDetailCard(
-          icon: Icons.contacts_outlined,
-          title: '- Contact',
-          content: '• Email: nurrizkyr90@gmail.com\n• LinkedIn: Muhammad Nur Rizky',
-        ),
-      ],
-    );
-  }
-
-  // Helper widget untuk membuat card detail yang seragam (About, Skills, dll)
-  Widget _buildDetailCard({required IconData icon, required String title, required String content}) {
-    return Card(
-      elevation: 2, // Beri sedikit bayangan agar terpisah dari card utama
-      color: Colors.grey.shade800,
-      margin: const EdgeInsets.symmetric(vertical: 7.0),
-      child: ListTile(
-        leading: Icon(icon, color: Colors.white),
-        title: Text(
-          title,
-          style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-        ),
-        subtitle: Text(
-          content,
-          style: const TextStyle(color: Colors.white),
-          ),
       ),
     );
   }
