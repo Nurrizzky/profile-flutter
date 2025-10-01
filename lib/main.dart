@@ -129,8 +129,11 @@ class _ProfileCardState extends State<ProfileCard> {
               child: _isExpanded
                   ? Column(
                       children: [
+
+
                          Divider(height: 50),
-                        // About Container
+
+
                         Container(
                           margin:  EdgeInsets.symmetric(vertical: 7.0),
                           decoration: BoxDecoration(
@@ -149,7 +152,9 @@ class _ProfileCardState extends State<ProfileCard> {
                             ),
                           ),
                         ),
-                        // Skills Container
+
+
+
                         Container(
                           margin:  EdgeInsets.symmetric(vertical: 7.0),
                            decoration: BoxDecoration(
@@ -168,7 +173,9 @@ class _ProfileCardState extends State<ProfileCard> {
                             ),
                           ),
                         ),
-                        // History Sekolah Container
+
+
+                      
                         Container(
                           margin:  EdgeInsets.symmetric(vertical: 7.0),
                            decoration: BoxDecoration(
@@ -187,7 +194,9 @@ class _ProfileCardState extends State<ProfileCard> {
                             ),
                           ),
                         ),
-                        // Contact Container
+
+
+
                         Container(
                           margin:  EdgeInsets.symmetric(vertical: 7.0),
                            decoration: BoxDecoration(
