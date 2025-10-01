@@ -24,7 +24,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[800],
+      backgroundColor: const Color.fromARGB(255, 151, 151, 151),
       body:  Center(
         child: ProfileCard(),
       ),
@@ -122,103 +122,97 @@ class _ProfileCardState extends State<ProfileCard> {
              SizedBox(height: 12),
 
 
-            // Widget AnimatedSize memberikan efek animasi halus saat ukuran berubah
-            AnimatedSize(
-              duration:  Duration(milliseconds: 400),
-              curve: Curves.easeInOut,
-              child: _isExpanded
-                  ? Column(
-                      children: [
+            _isExpanded ? Column(
+              children: [
 
 
-                         Divider(height: 50),
+              Divider(height: 20, thickness: 2),
 
 
-                        Container(
-                          margin:  EdgeInsets.symmetric(vertical: 7.0),
-                          decoration: BoxDecoration(
-                            color: Colors.grey.shade800,
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          child:  ListTile(
-                            leading: Icon(Icons.person_outline, color: Colors.white),
-                            title: Text(
-                              '- About',
-                              style: GoogleFonts.poppins(fontWeight: FontWeight.bold, color: Colors.white),
-                            ),
-                            subtitle: Text(
-                              "Halo! 👋 Saya Muhammad Nur Rizky seorang pelajar dari SMK Wikrama Bogor yang hobi mendengarkan musik dan berenang. Saat ini saya sedang belajar pemrograman, khususnya Flutter, Web Development, dan Go. Saya ingin terus berkembang dan bisa membuat aplikasi bermanfaat untuk banyak orang.",
-                              style: GoogleFonts.poppins(color: Colors.white),
-                            ),
-                          ),
-                        ),
+              Container(
+                margin:  EdgeInsets.symmetric(vertical: 7.0),
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade800,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child:  ListTile(
+                  leading: Icon(Icons.person_outline, color: Colors.white),
+                  title: Text(
+                    '- About',
+                    style: GoogleFonts.poppins(fontWeight: FontWeight.bold, color: Colors.white),
+                  ),
+                  subtitle: Text(
+                    "Halo! 👋 Saya Muhammad Nur Rizky seorang pelajar dari SMK Wikrama Bogor yang hobi mendengarkan musik dan berenang. Saat ini saya sedang belajar pemrograman, khususnya Flutter, Web Development, dan Go. Saya ingin terus berkembang dan bisa membuat aplikasi bermanfaat untuk banyak orang.",
+                    style: GoogleFonts.poppins(color: Colors.white),
+                  ),
+                ),
+              ),
 
 
 
-                        Container(
-                          margin:  EdgeInsets.symmetric(vertical: 7.0),
-                           decoration: BoxDecoration(
-                            color: Colors.grey.shade800,
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          child:  ListTile(
-                            leading: Icon(Icons.lightbulb_outline, color: Colors.white),
-                            title: Text(
-                              '- Skills',
-                              style: GoogleFonts.poppins(fontWeight: FontWeight.bold, color: Colors.white),
-                            ),
-                            subtitle: Text(
-                              'HTML, CSS, Javascript, Laravel, Git,',
-                              style: GoogleFonts.poppins(color: Colors.white),
-                            ),
-                          ),
-                        ),
+              Container(
+                margin:  EdgeInsets.symmetric(vertical: 7.0),
+                 decoration: BoxDecoration(
+                  color: Colors.grey.shade800,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child:  ListTile(
+                  leading: Icon(Icons.lightbulb_outline, color: Colors.white),
+                  title: Text(
+                    '- Skills',
+                    style: GoogleFonts.poppins(fontWeight: FontWeight.bold, color: Colors.white),
+                  ),
+                  subtitle: Text(
+                    'HTML, CSS, Javascript, Laravel, Git,',
+                    style: GoogleFonts.poppins(color: Colors.white),
+                  ),
+                ),
+              ),
 
 
                       
-                        Container(
-                          margin:  EdgeInsets.symmetric(vertical: 7.0),
-                           decoration: BoxDecoration(
-                            color: Colors.grey.shade800,
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          child:  ListTile(
-                            leading: Icon(Icons.school_outlined, color: Colors.white),
-                            title: Text(
-                              '- History Sekolah',
-                              style: GoogleFonts.poppins(fontWeight: FontWeight.bold, color: Colors.white),
-                            ),
-                            subtitle: Text(
-                              '• SMK Wikrama Bogor (2023-2026)\n• MTSs Fathan Mubina',
-                              style: GoogleFonts.poppins(color: Colors.white),
-                            ),
-                          ),
-                        ),
+              Container(
+                margin:  EdgeInsets.symmetric(vertical: 7.0),
+                 decoration: BoxDecoration(
+                  color: Colors.grey.shade800,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child:  ListTile(
+                  leading: Icon(Icons.school_outlined, color: Colors.white),
+                  title: Text(
+                    '- History Sekolah',
+                    style: GoogleFonts.poppins(fontWeight: FontWeight.bold, color: Colors.white),
+                  ),
+                  subtitle: Text(
+                    '• SMK Wikrama Bogor (2023-2026)\n• MTSs Fathan Mubina',
+                    style: GoogleFonts.poppins(color: Colors.white),
+                  ),
+                ),
+              ),
 
 
 
-                        Container(
-                          margin:  EdgeInsets.symmetric(vertical: 7.0),
-                           decoration: BoxDecoration(
-                            color: Colors.grey.shade800,
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          child:  ListTile(
-                            leading: Icon(Icons.contacts_outlined, color: Colors.white),
-                            title: Text(
-                              '- Contact',
-                              style: GoogleFonts.poppins(fontWeight: FontWeight.bold, color: Colors.white),
-                            ),
-                            subtitle: Text(
-                              '• Email: nurrizkyr90@gmail.com\n• LinkedIn: Muhammad Nur Rizky',
-                              style: GoogleFonts.poppins(color: Colors.white),
-                            ),
-                          ),
-                        ),
-                      ],
-                    )
-                  :  SizedBox.shrink(),
-            ),
+              Container(
+                margin:  EdgeInsets.symmetric(vertical: 7.0),
+                 decoration: BoxDecoration(
+                  color: Colors.grey.shade800,
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child:  ListTile(
+                  leading: Icon(Icons.contacts_outlined, color: Colors.white),
+                  title: Text(
+                    '- Contact',
+                    style: GoogleFonts.poppins(fontWeight: FontWeight.bold, color: Colors.white),
+                  ),
+                  subtitle: Text(
+                    '• Email: nurrizkyr90@gmail.com\n• LinkedIn: Muhammad Nur Rizky',
+                    style: GoogleFonts.poppins(color: Colors.white),
+                  ),
+                ),
+              ),
+              ],
+            )
+          :  SizedBox.shrink(),
           ],
         ),
       ),
