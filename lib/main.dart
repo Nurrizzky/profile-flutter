@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp( MyApp());
@@ -11,10 +12,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Profile',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.grey),
-        fontFamily: 'Poppins',
-      ),
       home:  ProfileScreen(),
       debugShowCheckedModeBanner: false,
     );
@@ -86,7 +83,7 @@ class _ProfileCardState extends State<ProfileCard> {
 
              Text(
               'Muhammad Nur Rizky',
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 fontSize: 22,
                 color: Colors.white54,
                 fontWeight: FontWeight.bold,
@@ -99,7 +96,7 @@ class _ProfileCardState extends State<ProfileCard> {
 
             Text(
               'SMK Wikrama Bogor',
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 fontSize: 16,
                 color: Colors.grey[600],
               ),
@@ -144,11 +141,11 @@ class _ProfileCardState extends State<ProfileCard> {
                             leading: Icon(Icons.person_outline, color: Colors.white),
                             title: Text(
                               '- About',
-                              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                              style: GoogleFonts.poppins(fontWeight: FontWeight.bold, color: Colors.white),
                             ),
                             subtitle: Text(
                               "Halo! 👋 Saya Muhammad Nur Rizky seorang pelajar dari SMK Wikrama Bogor yang hobi mendengarkan musik dan berenang. Saat ini saya sedang belajar pemrograman, khususnya Flutter, Web Development, dan Go. Saya ingin terus berkembang dan bisa membuat aplikasi bermanfaat untuk banyak orang.",
-                              style: TextStyle(color: Colors.white),
+                              style: GoogleFonts.poppins(color: Colors.white),
                             ),
                           ),
                         ),
@@ -163,11 +160,11 @@ class _ProfileCardState extends State<ProfileCard> {
                             leading: Icon(Icons.lightbulb_outline, color: Colors.white),
                             title: Text(
                               '- Skills',
-                              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                              style: GoogleFonts.poppins(fontWeight: FontWeight.bold, color: Colors.white),
                             ),
                             subtitle: Text(
                               'HTML, CSS, Javascript, Laravel, Git,',
-                              style: TextStyle(color: Colors.white),
+                              style: GoogleFonts.poppins(color: Colors.white),
                             ),
                           ),
                         ),
@@ -182,11 +179,11 @@ class _ProfileCardState extends State<ProfileCard> {
                             leading: Icon(Icons.school_outlined, color: Colors.white),
                             title: Text(
                               '- History Sekolah',
-                              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                              style: GoogleFonts.poppins(fontWeight: FontWeight.bold, color: Colors.white),
                             ),
                             subtitle: Text(
                               '• SMK Wikrama Bogor (2023-2026)\n• MTSs Fathan Mubina',
-                              style: TextStyle(color: Colors.white),
+                              style: GoogleFonts.poppins(color: Colors.white),
                             ),
                           ),
                         ),
@@ -201,11 +198,11 @@ class _ProfileCardState extends State<ProfileCard> {
                             leading: Icon(Icons.contacts_outlined, color: Colors.white),
                             title: Text(
                               '- Contact',
-                              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                              style: GoogleFonts.poppins(fontWeight: FontWeight.bold, color: Colors.white),
                             ),
                             subtitle: Text(
                               '• Email: nurrizkyr90@gmail.com\n• LinkedIn: Muhammad Nur Rizky',
-                              style: TextStyle(color: Colors.white),
+                              style: GoogleFonts.poppins(color: Colors.white),
                             ),
                           ),
                         ),
